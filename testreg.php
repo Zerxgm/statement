@@ -18,7 +18,7 @@ $password = stripslashes($password);
 // подключаемся к базе
     include ("db.php");// файл bd.php должен быть в той же папке, что и все остальные, если это не так, то просто измените путь 
  
-$result = mysqli_query("SELECT * FROM users WHERE login='$login'",$con); //извлекаем из базы все данные о пользователе с введенным логином
+$result = mysqli_query($con, "SELECT * FROM users WHERE login='$login'"); //извлекаем из базы все данные о пользователе с введенным логином
     $myrow = mysqli_fetch_array($result);
     if (empty($myrow['password']))
     {
